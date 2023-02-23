@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/spacing_normal"
+    android:layout_marginTop="@dimen/spacing_normal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginTop="@dimen/spacing_tiny">
+
+        <TextView
+            android:id="@+id/nameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_large"
+            android:textStyle="bold"
+            android:text="Pepito Perez"/>
+
+        <LinearLayout
+            android:id="@+id/lyPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameText"
+            android:layout_marginTop="@dimen/spacing_normal">
+
+            <ImageView
+                android:id="@+id/imgPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/call"/>
+
+            <TextView
+                android:id="@+id/txtPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="bold"
+                android:text="12321321"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal">
+
+            <ImageView
+                android:id="@+id/imgMail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/call"/>
+
+            <TextView
+                android:id="@+id/txtMail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/font_normal"
+                android:textStyle="bold"
+                android:text="232131321"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
