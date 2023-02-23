@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">users_mobile</string>
+    <string name="activity_user_list_loading">Cargando usuarios...</string>
 </resources>
