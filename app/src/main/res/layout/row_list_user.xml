@@ -27,19 +27,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/nameText"
-            android:layout_marginTop="@dimen/spacing_normal">
+            android:layout_marginTop="@dimen/spacing_small">
 
             <ImageView
                 android:id="@+id/imgPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:src="@drawable/call"/>
 
             <TextView
                 android:id="@+id/txtPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/spacing_small"
                 android:textSize="@dimen/font_normal"
+                android:gravity="center"
                 android:textStyle="bold"
                 android:text="12321321"/>
 
@@ -48,21 +50,37 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_normal">
+            android:textAlignment="center">
 
             <ImageView
                 android:id="@+id/imgMail"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/call"/>
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/mail"/>
 
             <TextView
                 android:id="@+id/txtMail"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:textAlignment="center"
+                android:gravity="center"
                 android:textSize="@dimen/font_normal"
                 android:textStyle="bold"
                 android:text="232131321"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/btnPost"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="@string/activity_user_list_button" />
 
         </LinearLayout>
 
