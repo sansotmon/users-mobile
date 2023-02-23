@@ -19,8 +19,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/font_large"
-            android:textStyle="bold"
-            android:text="Pepito Perez"/>
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:id="@+id/lyPhone"
@@ -42,8 +41,7 @@
                 android:layout_marginStart="@dimen/spacing_small"
                 android:textSize="@dimen/font_normal"
                 android:gravity="center"
-                android:textStyle="bold"
-                android:text="12321321"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -66,8 +64,7 @@
                 android:textAlignment="center"
                 android:gravity="center"
                 android:textSize="@dimen/font_normal"
-                android:textStyle="bold"
-                android:text="232131321"/>
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -80,7 +77,10 @@
                 android:id="@+id/btnPost"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="@string/activity_user_list_button" />
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:text="@string/activity_user_list_button"
+                android:layout_marginEnd="@dimen/spacing_small"/>
 
         </LinearLayout>
 
