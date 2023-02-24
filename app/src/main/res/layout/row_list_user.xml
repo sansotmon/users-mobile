@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="@dimen/spacing_small"
+    android:background="@drawable/background_card_button"
     android:layout_marginBottom="@dimen/spacing_normal"
     android:layout_marginTop="@dimen/spacing_normal">
 
@@ -9,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+
         android:layout_marginEnd="@dimen/margin"
         android:layout_marginStart="@dimen/margin"
         android:layout_marginTop="@dimen/spacing_tiny">
@@ -75,13 +78,13 @@
 
             <Button
                 android:id="@+id/btnPost"
-                android:layout_width="200dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
-                android:background="@drawable/background_card_button"
-                android:textStyle="bold"
-                android:text="@string/activity_user_list_button"
-                android:layout_marginEnd="@dimen/spacing_small"/>
+                android:theme="@style/Platform.MaterialComponents.Light"
+                android:backgroundTint="@color/white"
+                android:textStyle="normal"
+                android:text="@string/activity_user_list_button"/>
 
         </LinearLayout>
 
