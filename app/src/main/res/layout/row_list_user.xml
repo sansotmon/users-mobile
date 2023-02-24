@@ -35,7 +35,7 @@
                 android:src="@drawable/call"/>
 
             <TextView
-                android:id="@+id/txtPhone"
+                android:id="@+id/phoneText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/spacing_small"
@@ -51,13 +51,13 @@
             android:textAlignment="center">
 
             <ImageView
-                android:id="@+id/imgMail"
+                android:id="@+id/imgEmail"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/mail"/>
 
             <TextView
-                android:id="@+id/txtMail"
+                android:id="@+id/emailText"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/spacing_small"
@@ -78,6 +78,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/background_card_button"
                 android:textStyle="bold"
                 android:text="@string/activity_user_list_button"
                 android:layout_marginEnd="@dimen/spacing_small"/>

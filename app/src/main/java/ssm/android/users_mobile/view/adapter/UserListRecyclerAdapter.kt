@@ -15,6 +15,12 @@ class UserListRecyclerAdapter(val presenter: UserListPresenter): RecyclerView.Ad
             user.name?.let {
                 nameText.text = it
             }
+            user.phone?.let{
+                phoneText.text = it
+            }
+            user.email?.let{
+                emailText.text = it
+            }
         }
     }
 
