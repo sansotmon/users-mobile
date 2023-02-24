@@ -10,26 +10,28 @@ import ssm.android.users_mobile.model.User
 
 class UserListPresenter(val context: Context, val ui: UserListUI) : BasePresenter() {
 
-    private var users: List<User> = arrayListOf()
+    private var users: ArrayList<User> = arrayListOf()
 
     fun getUsers(){
         ui.showToast(context.getString(R.string.activity_user_list_loading))
         okInteractor.getUsers({responseBody ->
-            val json: JsonArray = JsonParser().parse(responseBody).asJsonArray
-            if(json.get(1) == null){
-                val response = Gson().fromJson(responseBody, User.Users::class.java)
-                users = response.users!!
-                users.forEach { user ->
-                    val obj = User(user.id, user.name, user.username, user.email, user.phone, user.website)
-                    ui.showToast(obj.id)
-                }
-            }else{
-                ui.showMessageDialog(json.get(1).toString())
+            val userListDict: JsonArray = JsonParser().parse(responseBody).asJsonArray
+            for (userDict in userListDict){
+                val user = Gson().fromJson(userDict, User::class.java)
+                users.add(user)
             }
+            if( users.isNotEmpty()) ui.refreshRecycler()
         }, {error->
             error?.let {
                 ui.showMessageDialog(it)
             }
         })
     }
+
+    fun getUser(index: Int, data: (user:User) -> Unit) {
+        val user = users[index]
+        data(user)
+    }
+
+    fun getTotalUsers(): Int = users.size
 }
