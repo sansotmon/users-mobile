@@ -14,6 +14,8 @@ class UserListActivity: BaseActivity(), UserListUI {
         setContentView(activity_user_list)
 
         presenter = UserListPresenter(this, this)
+
+        presenter?.getUsers()
     }
 
 }
