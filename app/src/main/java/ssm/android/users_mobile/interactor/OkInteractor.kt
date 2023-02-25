@@ -2,6 +2,7 @@ package ssm.android.users_mobile.interactor
 
 import okhttp3.*
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
+import ssm.android.users_mobile.model.User
 import java.io.IOException
 
 object OkInteractor {
@@ -24,6 +25,20 @@ object OkInteractor {
 
     fun getUsers(res: (String?) -> Unit, err: (String?) -> Unit) {
         url = "$BASE_URL/users".toHttpUrlOrNull()?.newBuilder()?.build()
+        url?.let { httpUrl ->
+            request = Request.Builder()
+                .url(httpUrl)
+                .build()
+        }
+
+        requestHttp(res, err)
+    }
+
+    fun getPostsByUser(idUser: String, res: (String?) -> Unit, err: (String?) -> Unit) {
+        url = BASE_URL.toHttpUrlOrNull()?.newBuilder()
+            ?.addPathSegment("/post")
+            ?.addQueryParameter("userId", idUser)
+            ?.build()
         url?.let { httpUrl ->
             request = Request.Builder()
                 .url(httpUrl)

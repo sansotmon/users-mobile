@@ -1,7 +1,5 @@
 package ssm.android.users_mobile.model
 
-import com.google.gson.annotations.SerializedName
-
 class User(
     var id: String,
     var name: String? = null,
@@ -10,10 +8,8 @@ class User(
     var phone: String? = null,
     var website: String? = null,
     var address: Address? = null,
-    var company: Company? = null
+    var company: Company? = null,
+    var posts: ArrayList<Post>? = null
 ) {
-    class Users {
-        @SerializedName("id")
-        var users: ArrayList<User>? = null
-    }
+
 }
