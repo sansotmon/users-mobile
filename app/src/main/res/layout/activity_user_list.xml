@@ -38,11 +38,23 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/emptyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:visibility="gone"
+            android:layout_below="@+id/userSearch"
+            android:text="@string/activity_user_list_empty"
+            android:textSize="@dimen/font_large"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="normal"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/userRecycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/userSearch"
+            android:layout_below="@id/emptyText"
             android:layout_marginTop="@dimen/margin_s"/>
 
     </RelativeLayout>

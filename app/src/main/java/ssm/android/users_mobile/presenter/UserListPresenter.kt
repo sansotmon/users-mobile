@@ -40,6 +40,7 @@ class UserListPresenter(private val context: Context, private val ui: UserListUI
 
     fun findUser(text: String) {
         tempUsers = users.filter { s -> s.name!!.contains(text, ignoreCase = true)}
+        if(tempUsers.isEmpty()) ui.showEmptyList(true) else ui.showEmptyList(false)
         ui.refreshRecycler()
     }
 

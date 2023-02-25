@@ -2,6 +2,7 @@ package ssm.android.users_mobile.view.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.widget.SearchView
 import kotlinx.android.synthetic.main.activity_user_list.*
 import ssm.android.users_mobile.presenter.UserListPresenter
@@ -42,6 +43,10 @@ class UserListActivity: BaseActivity(), UserListUI {
         userRecycler.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         userRecycler.adapter = adapter
         userRecycler.setHasFixedSize(true)
+    }
+
+    override fun showEmptyList(show: Boolean) {
+        if (show) emptyText.visibility = View.VISIBLE else emptyText.visibility = View.GONE
     }
 
     override fun refreshRecycler() {

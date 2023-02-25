@@ -3,6 +3,7 @@
     <string name="activity_user_list_loading">Cargando usuarios...</string>
     <string name="activity_user_list_button">Ver publicaciones</string>
     <string name="activity_user_list_title">Buscar usuario</string>
+    <string name="activity_user_list_empty">List is empty</string>
     <string name="activity_user_detail_loading">Cargando publicaciones...</string>
     <string name="activity_user_detail_title">Publicaciones</string>
     <string name="activity_user_post_title">Titulo</string>

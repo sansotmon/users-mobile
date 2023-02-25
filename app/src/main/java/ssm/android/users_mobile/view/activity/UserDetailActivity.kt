@@ -6,6 +6,7 @@ import ssm.android.users_mobile.R.layout.activity_user_detail
 import ssm.android.users_mobile.presenter.UserDetailPresenter
 import ssm.android.users_mobile.presenter.UserDetailUI
 import ssm.android.users_mobile.view.adapter.PostListRecyclerAdapter
+
 class UserDetailActivity: BaseActivity(), UserDetailUI {
 
     private var presenter: UserDetailPresenter? = null
