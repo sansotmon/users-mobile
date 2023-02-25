@@ -32,7 +32,6 @@ class UserDetailPresenter(private val context: Context, private val ui: UserDeta
             user?.posts = posts
             user?.posts?.let {
                 if(it.isNotEmpty()){
-                    ui.showToast("entro")
                     posts = it
                     ui.refreshRecycler()
                 }

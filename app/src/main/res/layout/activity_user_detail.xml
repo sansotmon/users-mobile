@@ -79,7 +79,7 @@
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/font_large"
             android:layout_below="@+id/lyEmail"
-            android:text="Publicaciones">
+            android:text="@string/activity_user_detail_title">
 
         </TextView>
 

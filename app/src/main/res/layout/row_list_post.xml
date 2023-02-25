@@ -19,21 +19,24 @@
             android:id="@+id/titleLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Titulo" />
+            android:textSize="@dimen/font_large"
+            android:textStyle="bold"
+            android:text="@string/activity_user_post_title" />
 
         <TextView
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/titleLabel"
-            android:text="hola olas" />
+            android:layout_below="@+id/titleLabel"/>
 
         <TextView
             android:id="@+id/bodyLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titleText"
-            android:text="Mensaje" />
+            android:textSize="@dimen/font_large"
+            android:textStyle="bold"
+            android:text="@string/activity_user_post_message" />
 
         <TextView
             android:id="@+id/bodyText"
