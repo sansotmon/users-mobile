@@ -3,12 +3,11 @@ package ssm.android.users_mobile.presenter
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.JsonArray
-import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import ssm.android.users_mobile.R
 import ssm.android.users_mobile.model.User
 
-class UserListPresenter(val context: Context, val ui: UserListUI) : BasePresenter() {
+class UserListPresenter(private val context: Context, private val ui: UserListUI) : BasePresenter() {
 
     private var users: ArrayList<User> = arrayListOf()
     private var tempUsers: List<User> = arrayListOf()
@@ -42,5 +41,10 @@ class UserListPresenter(val context: Context, val ui: UserListUI) : BasePresente
     fun findUser(text: String) {
         tempUsers = users.filter { s -> s.name!!.contains(text, ignoreCase = true)}
         ui.refreshRecycler()
+    }
+
+    fun actionUser(index: Int) {
+        val recipe = tempUsers[index]
+        ui.showUser(Gson().toJson(recipe))
     }
 }

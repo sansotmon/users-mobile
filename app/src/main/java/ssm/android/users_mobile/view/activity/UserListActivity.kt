@@ -1,5 +1,6 @@
 package ssm.android.users_mobile.view.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.widget.SearchView
 import kotlinx.android.synthetic.main.activity_user_list.*
@@ -47,5 +48,15 @@ class UserListActivity: BaseActivity(), UserListUI {
         runOnUiThread {
             adapter?.notifyDataSetChanged()
         }
+    }
+
+    override fun showUser(userJson: String) {
+        startActivity(createRecipeDetailIntent(userJson))
+    }
+
+    private fun createRecipeDetailIntent(recipeJson: String): Intent {
+        val intent = Intent(this, UserDetailActivity::class.java)
+        intent.putExtra(UserDetailActivity.USER, recipeJson)
+        return intent
     }
 }

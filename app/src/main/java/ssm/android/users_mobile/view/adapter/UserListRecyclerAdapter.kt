@@ -34,6 +34,9 @@ class UserListRecyclerAdapter(val presenter: UserListPresenter): RecyclerView.Ad
         presenter.getUser(position) { user ->
             holder.bind(user)
         }
+        holder.itemView.setOnClickListener {
+            presenter.actionUser(position)
+        }
     }
 
     override fun getItemCount(): Int = presenter.getTotalUsers()
