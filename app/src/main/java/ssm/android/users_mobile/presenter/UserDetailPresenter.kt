@@ -21,8 +21,9 @@ class UserDetailPresenter(private val context: Context, private val ui: UserDeta
     }
 
     private fun getPostList(idUser: String){
-        ui.showToast(context.getString(R.string.activity_user_detail_loading))
+        ui.showProgressDialog(context.getString(R.string.activity_user_detail_loading))
         okInteractor.getPostsByUser(idUser, {responseBody ->
+            ui.hideProgressDialog()
             val postListDict: JsonArray = JsonParser().parse(responseBody).asJsonArray
             for (postDict in postListDict){
                 val post = Gson().fromJson(postDict, Post::class.java)

@@ -19,8 +19,9 @@ class UserListPresenter(private val context: Context, private val ui: UserListUI
 
     fun getUsers(){
         if(!getUsersFromDB()){
-            ui.showToast(context.getString(R.string.activity_user_list_loading))
+            ui.showProgressDialog(context.getString(R.string.activity_user_list_loading))
             okInteractor.getUsers({responseBody ->
+                ui.hideProgressDialog()
                 val userListDict: JsonArray = JsonParser().parse(responseBody).asJsonArray
                 for (userDict in userListDict){
                     val user = Gson().fromJson(userDict, User::class.java)
