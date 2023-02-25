@@ -1,8 +1,9 @@
 package ssm.android.users_mobile.model
 
 class Post(
-    id: String,
-    title: String? = null,
-    body: String? = null,
+    var userId: String,
+    var id: String,
+    var title: String? = null,
+    var body: String? = null,
 ) {
 }

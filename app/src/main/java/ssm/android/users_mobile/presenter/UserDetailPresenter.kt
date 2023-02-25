@@ -8,20 +8,33 @@ import ssm.android.users_mobile.R
 import ssm.android.users_mobile.model.Post
 import ssm.android.users_mobile.model.User
 
-class UserDetailPresenter(val context: Context, val ui: UserDetailUI): BasePresenter(){
+class UserDetailPresenter(private val context: Context, private val ui: UserDetailUI): BasePresenter(){
     private var user: User? = null
+    private var posts: ArrayList<Post> = arrayListOf()
 
-    fun getPostList(idUser: String){
+    fun showUser(userJson:String){
+        user = Gson().fromJson(userJson, User::class.java)
+        user?.let {
+            ui.showUser(it.name!!, it.email!!, it.phone!!)
+            getPostList(it.id)
+        }
+
+    }
+
+    private fun getPostList(idUser: String){
         ui.showToast(context.getString(R.string.activity_user_detail_loading))
         okInteractor.getPostsByUser(idUser, {responseBody ->
             val postListDict: JsonArray = JsonParser().parse(responseBody).asJsonArray
             for (postDict in postListDict){
                 val post = Gson().fromJson(postDict, Post::class.java)
-                user?.posts?.add(post)
+                posts.add(post)
             }
+            user?.posts = posts
             user?.posts?.let {
-                if( it.isNotEmpty()){
-
+                if(it.isNotEmpty()){
+                    ui.showToast("entro")
+                    posts = it
+                    ui.refreshRecycler()
                 }
             }
         }, {error->
@@ -31,10 +44,10 @@ class UserDetailPresenter(val context: Context, val ui: UserDetailUI): BasePrese
         })
     }
 
-    fun showUser(userJson:String){
-        user = Gson().fromJson(userJson, User::class.java)
-        user?.let {
-            ui.showUser(it.name!!, it.email!!, it.phone!!)
-        }
+    fun getTotalUsers(): Int = posts.size
+
+    fun getPost(index: Int, data: (post:Post) -> Unit) {
+        val post = posts[index]
+        data(post)
     }
 }
