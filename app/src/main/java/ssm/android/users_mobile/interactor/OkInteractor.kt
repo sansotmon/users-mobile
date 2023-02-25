@@ -47,7 +47,6 @@ object OkInteractor {
                 .url(httpUrl)
                 .build()
         }
-        Log.e("url_post", url.toString())
         requestHttp(res, err)
     }
 }
