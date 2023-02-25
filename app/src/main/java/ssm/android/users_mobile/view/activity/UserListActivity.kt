@@ -1,6 +1,7 @@
 package ssm.android.users_mobile.view.activity
 
 import android.os.Bundle
+import androidx.appcompat.widget.SearchView
 import kotlinx.android.synthetic.main.activity_user_list.*
 import ssm.android.users_mobile.presenter.UserListPresenter
 import ssm.android.users_mobile.presenter.UserListUI
@@ -20,6 +21,19 @@ class UserListActivity: BaseActivity(), UserListUI {
         presenter = UserListPresenter(this, this)
         createRecycleAdapter()
         presenter?.getUsers()
+
+        userSearch.setOnQueryTextListener (object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(text: String?): Boolean {
+                text?.let {
+                    presenter?.findUser(text)
+                }
+                return false
+            }
+        })
     }
 
     private fun createRecycleAdapter(){

@@ -11,6 +11,7 @@ import ssm.android.users_mobile.model.User
 class UserListPresenter(val context: Context, val ui: UserListUI) : BasePresenter() {
 
     private var users: ArrayList<User> = arrayListOf()
+    private var tempUsers: List<User> = arrayListOf()
 
     fun getUsers(){
         ui.showToast(context.getString(R.string.activity_user_list_loading))
@@ -20,7 +21,10 @@ class UserListPresenter(val context: Context, val ui: UserListUI) : BasePresente
                 val user = Gson().fromJson(userDict, User::class.java)
                 users.add(user)
             }
-            if( users.isNotEmpty()) ui.refreshRecycler()
+            if( users.isNotEmpty()){
+                tempUsers = users
+                ui.refreshRecycler()
+            }
         }, {error->
             error?.let {
                 ui.showMessageDialog(it)
@@ -29,9 +33,14 @@ class UserListPresenter(val context: Context, val ui: UserListUI) : BasePresente
     }
 
     fun getUser(index: Int, data: (user:User) -> Unit) {
-        val user = users[index]
+        val user = tempUsers[index]
         data(user)
     }
 
-    fun getTotalUsers(): Int = users.size
+    fun getTotalUsers(): Int = tempUsers.size
+
+    fun findUser(text: String) {
+        tempUsers = users.filter { s -> s.name!!.contains(text, ignoreCase = true)}
+        ui.refreshRecycler()
+    }
 }
