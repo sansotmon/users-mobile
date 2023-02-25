@@ -1,7 +1,10 @@
 package ssm.android.users_mobile.view.activity
 
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_user_detail.*
+import kotlinx.android.synthetic.main.activity_user_detail.emptyText
+import kotlinx.android.synthetic.main.activity_user_list.*
 import ssm.android.users_mobile.R.layout.activity_user_detail
 import ssm.android.users_mobile.presenter.UserDetailPresenter
 import ssm.android.users_mobile.presenter.UserDetailUI
@@ -41,6 +44,12 @@ class UserDetailActivity: BaseActivity(), UserDetailUI {
     override fun refreshRecycler() {
         runOnUiThread {
             adapter?.notifyDataSetChanged()
+        }
+    }
+
+    override fun showEmptyList(show: Boolean) {
+        runOnUiThread {
+            if (show) emptyText.visibility = View.VISIBLE else emptyText.visibility = View.GONE
         }
     }
 

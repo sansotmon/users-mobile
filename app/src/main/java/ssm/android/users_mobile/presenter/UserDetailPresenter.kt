@@ -18,7 +18,6 @@ class UserDetailPresenter(private val context: Context, private val ui: UserDeta
             ui.showUser(it.name!!, it.email!!, it.phone!!)
             getPostList(it.id)
         }
-
     }
 
     private fun getPostList(idUser: String){
@@ -34,6 +33,8 @@ class UserDetailPresenter(private val context: Context, private val ui: UserDeta
                 if(it.isNotEmpty()){
                     posts = it
                     ui.refreshRecycler()
+                }else{
+                    ui.showEmptyList(true)
                 }
             }
         }, {error->
